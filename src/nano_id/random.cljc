@@ -6,7 +6,7 @@
 
 (def ^:private secure-random
   #?(:clj  NanoID/secureRandom
-     :cljs js/crypto))
+     :cljs (or js/window.crypto js/window.msCrypto)))
 
 
 (defn random-bytes
